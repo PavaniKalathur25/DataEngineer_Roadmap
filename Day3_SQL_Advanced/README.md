@@ -1,23 +1,22 @@
-# Day 3 Progress
+# Day 3 – Intermediate SQL
 
-# SQL Learning – Day 3
+### ✅ Covered Today
+- Joins (Inner, Left, Right, Full, Self)
+- Common Table Expressions (CTE)
+- Window Functions (Ranking, Running Totals)
 
-## ✅ Topics Covered
-- Subqueries (Single row, Multi row, Nested)
-- Common Table Expressions (CTEs)
-- Window Functions (RANK, ROW_NUMBER, DENSE_RANK)
+### 📚 Files in this folder:
+- `Day3_Notes.md` → Concept explanations + revision notes
+- `Day3_SQL_Practice.sql` → Queries practiced
+- `README.md` → Daily log
 
-## 📝 Practice Done
-- Found customers spending above average
-- Used CTE for reusability
-- Ranked customers by spending
-- Compared ROW_NUMBER vs RANK
+### 🔑 Keywords for Interviews:
+- **CTE** → Temporary virtual table, improves readability.
+- **Window Function** → Analytics across rows without collapsing them.
 
-## 🚀 Reflection
-- Subqueries are powerful but can get messy → CTE makes queries more readable.
-- Window Functions are game changers for reporting & analytics (ranking, running totals).
-- Learned that WHERE cannot directly filter window functions → must wrap in CTE.
+### 🔗 Real-time Analogy
+- CTE = helper notes before solving a big math problem.
+- Window function = running scoreboard in a live match.
 
-## 📌 Next Steps (Day 4)
-- Deep dive into **Aggregations with Window Functions**
-- Learn **Indexing & Performance Optimization basics**
+---
+
