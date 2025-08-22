@@ -1,38 +1,36 @@
 -- Day 3 SQL Practice
 
--- SUBQUERY (Find customers who spent above average amount)
-SELECT customer_id, SUM(amount) as total_spent
-FROM orders
-GROUP BY customer_id
-HAVING SUM(amount) > (
-    SELECT AVG(amount) FROM orders
-);
 
--- NESTED SUBQUERY (Find customers who placed the highest single order)
-SELECT customer_id, order_id, amount
-FROM orders
-WHERE amount = (SELECT MAX(amount) FROM orders);
+---
 
--- CTE (Common Table Expression) → cleaner subqueries
+## 💻 `Day3_SQL_Practice.sql`
+```sql
+-- 1. INNER JOIN Practice
+SELECT o.order_id, c.customer_name, o.amount
+FROM orders o
+INNER JOIN customers c ON o.customer_id = c.customer_id;
+
+-- 2. LEFT JOIN Practice
+SELECT c.customer_name, o.order_id, o.amount
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id;
+
+-- 3. CTE Example
 WITH customer_totals AS (
     SELECT customer_id, SUM(amount) AS total_spent
     FROM orders
     GROUP BY customer_id
 )
-SELECT c.customer_id, c.total_spent
-FROM customer_totals c
-WHERE c.total_spent > 500;
+SELECT customer_id, total_spent
+FROM customer_totals
+WHERE total_spent > 5000;
 
--- WINDOW FUNCTION → Ranking customers by total spending
-SELECT customer_id, SUM(amount) AS total_spent,
-       RANK() OVER (ORDER BY SUM(amount) DESC) AS spending_rank
-FROM orders
-GROUP BY customer_id;
+-- 4. Window Function – Ranking
+SELECT student_id, score,
+       RANK() OVER (ORDER BY score DESC) AS rank
+FROM students;
 
--- ROW_NUMBER vs RANK example
-SELECT order_id, customer_id, amount,
-       ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY amount DESC) AS rownum,
-       RANK() OVER (PARTITION BY customer_id ORDER BY amount DESC) AS ranknum
+-- 5. Window Function – Running Total
+SELECT city, order_id, amount,
+       SUM(amount) OVER (PARTITION BY city ORDER BY order_id) AS running_total
 FROM orders;
-
-
