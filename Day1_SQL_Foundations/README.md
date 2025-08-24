@@ -1,25 +1,12 @@
-# Day 1 Progress
+# Day 1 – SQL Basics ✅
 
-# SQL Learning – Day 1
+### Topics Covered
+- Databases & Tables
+- DDL vs DML
+- SELECT, WHERE, ORDER BY, LIMIT
 
-## ✅ Topics Covered
-- SELECT
-- WHERE
-- ORDER BY
-- GROUP BY
-- HAVING
-- LIMIT
+### Practice Done
+- Created tables: students, books, orders
+- 15+ SQL queries executed
 
-## 📝 Practice Done
-- Filtering customers/orders
-- Aggregating spend per customer
-- Finding top products
-
-## 🚀 Reflection
-Learned how to filter, group, and sort data.  
-Realized WHERE filters rows *before* grouping, while HAVING works *after*.  
-
-## 📌 Next Steps (Day 2)
-- Learn JOINS (INNER, LEFT, RIGHT, FULL)
-- More practice with multiple tables
-
+### Status: Completed 🎉
