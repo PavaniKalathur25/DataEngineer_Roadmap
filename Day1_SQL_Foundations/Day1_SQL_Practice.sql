@@ -1,27 +1,28 @@
--- Select specific columns
-SELECT name, age FROM employees;
 
--- Filter with WHERE
-SELECT * FROM orders WHERE amount > 1000;
+---
 
--- Sorting
-SELECT * FROM customers ORDER BY join_date DESC;
+## 💻 `Day1_SQL_Practice.sql` (Practice File)
 
--- Aggregation
-SELECT customer_id, SUM(amount) AS total_spend
-FROM orders
-GROUP BY customer_id;
+```sql
+-- Create Books table
+CREATE TABLE books (
+  id INT PRIMARY KEY,
+  title VARCHAR(100),
+  author VARCHAR(50),
+  price DECIMAL(10,2)
+);
 
--- Aggregation with HAVING
-SELECT customer_id, SUM(amount) AS total_spend
-FROM orders
-GROUP BY customer_id
-HAVING SUM(amount) > 5000;
+-- Insert records
+INSERT INTO books VALUES
+(1, 'Data Magic 101', 'Rowling', 250),
+(2, 'Python Sparks', 'Sam', 199),
+(3, 'SQL Mastery', 'John', 300);
 
--- Find top 5 products by sales
-SELECT product_id, SUM(amount) AS total_sales
-FROM orders
-GROUP BY product_id
-ORDER BY total_sales DESC
-LIMIT 5;
+-- Show all books
+SELECT * FROM books;
 
+-- Books above 200
+SELECT * FROM books WHERE price > 200;
+
+-- Books by Rowling
+SELECT * FROM books WHERE author = 'Rowling';
