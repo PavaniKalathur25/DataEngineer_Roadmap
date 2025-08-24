@@ -1,32 +1,54 @@
-# Day 1 Notes – SQL Foundations
+# Day 1 – SQL Foundations 🏗️
 
-## SELECT
-- Pulls data from tables.
-- Example: `SELECT name, age FROM employees;`
+## 🌟 What is SQL?
+- Structured Query Language → Language to communicate with databases.
+- Think of it as **asking questions** to your data.
 
-## WHERE
-- Filters rows before grouping.
-- Example: `WHERE amount > 1000`
+## 🧩 Where it's used?
+- Banking → Transactions
+- E-commerce → Products & orders
+- Netflix → Watch history
+- Hospitals → Patient records
 
-## ORDER BY
-- Sorts data ascending/descending.
-- Example: `ORDER BY join_date DESC`
+## 🎯 Why it's used?
+- Simple (English-like)
+- Universal (works in MySQL, Postgres, SQL Server, Snowflake, BigQuery)
+- Powerful (handles millions of rows)
 
-## GROUP BY
-- Groups rows by column(s) for aggregation.
-- Example: `GROUP BY customer_id`
+---
 
-## HAVING
-- Filters groups after aggregation.
-- Example: `HAVING SUM(amount) > 5000`
+## 🔑 Keywords
+- **Database** → container of tables
+- **Table** → rows (records) + columns (attributes)
+- **DDL** (Data Definition Language) → CREATE, DROP
+- **DML** (Data Manipulation Language) → SELECT, INSERT, UPDATE, DELETE
+- **Query** → Question to the database
 
-## LIMIT
-- Restricts number of rows.
-- Example: `LIMIT 5`
+---
 
-### 🎯 Real-Life Analogy
-- **WHERE** = check people at entrance of cinema hall.  
-- **GROUP BY** = divide them into groups (age, ticket type).  
-- **HAVING** = apply conditions on those groups (e.g., groups with >10 people).  
-- **ORDER BY** = arrange groups (smallest → biggest).  
-- **LIMIT** = show only top groups. "
+## 🛠️ Core Commands
+```sql
+-- Create table
+CREATE TABLE students (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  grade INT
+);
+
+-- Insert rows
+INSERT INTO students (id, name, grade)
+VALUES (1, 'Pavani', 95),
+       (2, 'Arjun', 88),
+       (3, 'Meera', 76);
+
+-- Fetch data
+SELECT * FROM students;
+
+-- Fetch with filter
+SELECT * FROM students WHERE grade > 80;
+
+-- Sorting
+SELECT * FROM students ORDER BY grade DESC;
+
+-- Limit results
+SELECT * FROM students ORDER BY grade DESC LIMIT 2;
