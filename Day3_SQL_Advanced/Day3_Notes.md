@@ -1,30 +1,27 @@
-# Day 3 Notes
+# Day 3 – SQL Aggregations & CTEs 📊
 
-# Day 3 – Intermediate SQL: Joins, CTEs, and Window Functions
+## 🌟 What are Aggregations?
+- Functions that summarize multiple rows into one value.
 
-## 1. Joins Recap
-- **INNER JOIN** → Only matching rows.
-- **LEFT JOIN** → All from left table + matches.
-- **RIGHT JOIN** → All from right table + matches.
-- **FULL OUTER JOIN** → All rows, match if possible.
-- **SELF JOIN** → Join table with itself.
+## 🔑 Common Aggregates
+- COUNT() → number of rows
+- SUM() → total value
+- AVG() → average
+- MIN(), MAX() → min/max value
 
 ---
 
-## 2. Common Table Expressions (CTE)
-
-### What:
-- A temporary result set used inside a query.
-- Makes queries cleaner, reusable, and step-by-step.
-
-### Why:
-- Better readability compared to nested subqueries.
-- Break down complex queries logically.
-
-### Syntax:
+## 🛠️ Grouping & Filtering
 ```sql
-WITH cte_name AS (
-    SELECT ...
-)
-SELECT * FROM cte_name;
+-- Sales per customer
+SELECT c.name, SUM(o.amount) AS total_sales
+FROM customers c
+JOIN orders o ON c.cust_id = o.cust_id
+GROUP BY c.name;
 
+-- Filter with HAVING
+SELECT c.name, SUM(o.amount) AS total_sales
+FROM customers c
+JOIN orders o ON c.cust_id = o.cust_id
+GROUP BY c.name
+HAVING SUM(o.amount) > 600;
