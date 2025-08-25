@@ -1,22 +1,15 @@
-# Day 3 – Intermediate SQL
+# Day 3 – SQL Aggregations & CTE ✅
 
-### ✅ Covered Today
-- Joins (Inner, Left, Right, Full, Self)
-- Common Table Expressions (CTE)
-- Window Functions (Ranking, Running Totals)
+### Topics Covered
+- Aggregation Functions
+- GROUP BY & HAVING
+- Window Functions (ROW_NUMBER, RANK)
+- Common Table Expressions (CTEs)
 
-### 📚 Files in this folder:
-- `Day3_Notes.md` → Concept explanations + revision notes
-- `Day3_SQL_Practice.sql` → Queries practiced
-- `README.md` → Daily log
+### Practice Done
+- Aggregations on Orders
+- Customer-wise sales report
+- Ranking customers
+- Used CTE for Top-N customers
 
-### 🔑 Keywords for Interviews:
-- **CTE** → Temporary virtual table, improves readability.
-- **Window Function** → Analytics across rows without collapsing them.
-
-### 🔗 Real-time Analogy
-- CTE = helper notes before solving a big math problem.
-- Window function = running scoreboard in a live match.
-
----
-
+### Status: Completed 🎉
