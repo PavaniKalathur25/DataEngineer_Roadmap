@@ -1,36 +1,31 @@
--- Day 3 SQL Practice
-
 
 ---
 
 ## 💻 `Day3_SQL_Practice.sql`
 ```sql
--- 1. INNER JOIN Practice
-SELECT o.order_id, c.customer_name, o.amount
-FROM orders o
-INNER JOIN customers c ON o.customer_id = c.customer_id;
+-- Total sales
+SELECT SUM(amount) FROM orders;
 
--- 2. LEFT JOIN Practice
-SELECT c.customer_name, o.order_id, o.amount
+-- Avg order per customer
+SELECT c.name, AVG(o.amount) AS avg_sales
 FROM customers c
-LEFT JOIN orders o ON c.customer_id = o.customer_id;
+JOIN orders o ON c.cust_id = o.cust_id
+GROUP BY c.name;
 
--- 3. CTE Example
-WITH customer_totals AS (
-    SELECT customer_id, SUM(amount) AS total_spent
-    FROM orders
-    GROUP BY customer_id
+-- Rank customers
+SELECT c.name, SUM(o.amount) AS total_sales,
+       ROW_NUMBER() OVER (ORDER BY SUM(o.amount) DESC) AS row_num
+FROM customers c
+JOIN orders o ON c.cust_id = o.cust_id
+GROUP BY c.name;
+
+-- CTE for top 2 customers
+WITH customer_sales AS (
+  SELECT c.name, SUM(o.amount) AS total_sales
+  FROM customers c
+  JOIN orders o ON c.cust_id = o.cust_id
+  GROUP BY c.name
 )
-SELECT customer_id, total_spent
-FROM customer_totals
-WHERE total_spent > 5000;
-
--- 4. Window Function – Ranking
-SELECT student_id, score,
-       RANK() OVER (ORDER BY score DESC) AS rank
-FROM students;
-
--- 5. Window Function – Running Total
-SELECT city, order_id, amount,
-       SUM(amount) OVER (PARTITION BY city ORDER BY order_id) AS running_total
-FROM orders;
+SELECT * FROM customer_sales
+ORDER BY total_sales DESC
+LIMIT 2;
