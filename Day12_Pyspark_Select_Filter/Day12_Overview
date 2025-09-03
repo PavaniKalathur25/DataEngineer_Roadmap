@@ -1,0 +1,18 @@
+# Day 12 – PySpark Select & Filter (Data Engineer Roadmap)
+
+## Topics Covered
+- select()
+- filter()
+- withColumn()
+- drop()
+
+## Key Takeaways
+- **select()** → Pick specific columns (like SQL SELECT).
+- **filter()** → Keep only rows that meet conditions (like SQL WHERE).
+- **withColumn()** → Add or modify columns.
+- **drop()** → Remove columns.
+
+## Folder Structure
+-  → Hands-on examples
+-  → Sample input files (employees.csv, employees.json, employees.parquet)
+
