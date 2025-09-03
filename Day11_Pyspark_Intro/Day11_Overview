@@ -1,0 +1,17 @@
+# Day 11 – PySpark Intro (Data Engineer Roadmap)
+
+## Topics Covered
+- SparkSession
+- RDD vs DataFrame
+- Reading Data (CSV, Parquet, JSON)
+
+## Key Takeaways
+- Always start with **SparkSession**
+- Use **DataFrames** (RDD only for rare cases)
+- Know how to read/write **CSV, Parquet, JSON**
+- **Parquet = gold standard** for Data Lakes
+
+## Folder Structure
+-  → Hands-on examples
+-  → Sample input files (CSV, Parquet, JSON)
+
