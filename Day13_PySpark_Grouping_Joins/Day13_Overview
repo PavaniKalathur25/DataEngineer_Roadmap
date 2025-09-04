@@ -1,0 +1,18 @@
+# Day 13 – PySpark Grouping & Joins (Data Engineer Roadmap)
+
+## Topics Covered
+- groupBy()
+- agg()
+- count()
+- joins (inner, left, right, outer)
+
+## Key Takeaways
+- **groupBy()** → Organize rows into groups
+- **agg()** → Perform multiple aggregations on groups
+- **count()** → Count rows in DataFrame or groups
+- **joins** → Merge DataFrames on a key column
+
+## Folder Structure
+-  → Hands-on examples
+-  → Sample input files (employees.csv, departments.csv)
+
