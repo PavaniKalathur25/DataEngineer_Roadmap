@@ -1,0 +1,17 @@
+# Day 14 – PySpark Joins (Inner, Outer, Cross)
+
+## Topics Covered
+- Inner Join
+- Outer Join (Full Outer Join)
+- Cross Join (Cartesian Join)
+
+## Key Takeaways
+- **Inner Join** → keeps only matching records.
+- **Outer Join** → keeps all records from both DataFrames, fills unmatched with nulls.
+- **Cross Join** → Cartesian product, all combinations of rows.
+
+## Files
+-  → PySpark practice code
+-  → Employee dataset
+-  → Department dataset
+
