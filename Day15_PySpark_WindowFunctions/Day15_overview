@@ -1,0 +1,16 @@
+# Day 15 – PySpark Window Functions (rank, row_number, partitionBy)
+
+## Topics Covered
+- rank()
+- row_number()
+- partitionBy()
+
+## Key Takeaways
+- **rank()** → Assigns ranking, ties get same rank, skips numbers.
+- **row_number()** → Assigns unique sequential number (used for deduplication).
+- **partitionBy()** → Groups data into windows before applying functions.
+
+## Files
+-  → PySpark practice code
+-  → Employee dataset with salaries and departments
+
