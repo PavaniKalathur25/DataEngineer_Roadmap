@@ -1,0 +1,11 @@
+## 1. OLTP vs OLAP
+
+| Feature            | OLTP (Online Transaction Processing) | OLAP (Online Analytical Processing) |
+|--------------------|---------------------------------------|--------------------------------------|
+| **Purpose**        | Day-to-day transactions               | Data analysis & reporting            |
+| **Operations**     | CRUD (Insert, Update, Delete, Read)   | Aggregations, Summaries, Complex Queries |
+| **Data Type**      | Current, real-time data               | Historical data                      |
+| **Query Speed**    | Fast for small transactions           | Fast for large read queries          |
+| **Design**         | Normalized (to avoid redundancy)      | Denormalized (Star/Snowflake schema) |
+| **Users**          | Clerks, Customers, End-users          | Analysts, Data Scientists, Managers  |
+| **Examples**       | Banking, E-commerce, Ticket Booking   | Sales reports, BI dashboards         |

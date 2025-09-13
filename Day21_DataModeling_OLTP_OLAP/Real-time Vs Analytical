@@ -1,0 +1,8 @@
+| Feature            | Real-time DBs                        | Analytical DBs                        |
+|--------------------|---------------------------------------|----------------------------------------|
+| **Purpose**        | Instant data updates & visibility     | Historical trend analysis & insights   |
+| **Processing**     | Streaming, Event-driven              | Batch/ELT                              |
+| **Data Freshness** | Real-time (seconds/ms)               | Delayed (hours/days)                   |
+| **Query Speed**    | Optimized for low-latency operations | Optimized for heavy analytical queries |
+| **Examples**       | Uber, Stock Trading, IoT dashboards  | Snowflake, Synapse, BigQuery, Redshift |
+| **Users**          | Applications needing instant results | Analysts, BI tools, ML models          |
