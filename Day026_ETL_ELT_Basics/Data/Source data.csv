@@ -1,0 +1,5 @@
+id,name,age,salary
+1,John Doe,28,50000
+2,Jane Smith,35,60000
+3,Bob Johnson,,45000
+4,Alice Williams,29,NaN
