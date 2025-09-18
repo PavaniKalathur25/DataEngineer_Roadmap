@@ -1,0 +1,4 @@
+id,name,city
+1,John,San Francisco   # updated city
+2,Jane,Chicago         # unchanged
+4,Alice,Miami          # new record
