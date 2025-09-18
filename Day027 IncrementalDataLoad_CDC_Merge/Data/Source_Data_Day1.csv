@@ -1,0 +1,9 @@
+---
+
+### 📄 **data/source_data_day1.csv**
+
+```csv
+id,name,city
+1,John,New York
+2,Jane,Chicago
+3,Bob,Los Angeles
