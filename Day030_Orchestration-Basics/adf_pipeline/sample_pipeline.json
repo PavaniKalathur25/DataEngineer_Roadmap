@@ -1,0 +1,25 @@
+{
+  "name": "SampleETLPipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "ExtractData",
+        "type": "Copy",
+        "inputs": [ { "referenceName": "SourceDataset", "type": "DatasetReference" } ],
+        "outputs": [ { "referenceName": "StagingDataset", "type": "DatasetReference" } ]
+      },
+      {
+        "name": "TransformData",
+        "type": "DataFlow",
+        "inputs": [ { "referenceName": "StagingDataset", "type": "DatasetReference" } ],
+        "outputs": [ { "referenceName": "TransformedDataset", "type": "DatasetReference" } ]
+      },
+      {
+        "name": "LoadData",
+        "type": "Copy",
+        "inputs": [ { "referenceName": "TransformedDataset", "type": "DatasetReference" } ],
+        "outputs": [ { "referenceName": "WarehouseDataset", "type": "DatasetReference" } ]
+      }
+    ]
+  }
+}
