@@ -1,0 +1,4 @@
+```json
+{"user":"Alice","action":"click","timestamp":"2025-09-18T10:00:00"}
+{"user":"Bob","action":"purchase","timestamp":"2025-09-18T10:00:05"}
+{"user":"Charlie","action":"scroll","timestamp":"2025-09-18T10:00:10"}
