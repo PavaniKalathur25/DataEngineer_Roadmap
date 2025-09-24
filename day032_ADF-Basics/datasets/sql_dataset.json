@@ -1,0 +1,13 @@
+{
+  "name": "SQLDataset",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "AzureSQLDatabaseLinkedService",
+      "type": "LinkedServiceReference"
+    },
+    "type": "SqlServerTable",
+    "typeProperties": {
+      "tableName": "dbo.SalesData"
+    }
+  }
+}

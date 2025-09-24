@@ -1,0 +1,15 @@
+{
+  "name": "BlobDataset",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "AzureBlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": { "type": "AzureBlobStorageLocation", "fileName": "input.csv", "folderPath": "raw-data" },
+      "columnDelimiter": ",",
+      "firstRowAsHeader": true
+    }
+  }
+}

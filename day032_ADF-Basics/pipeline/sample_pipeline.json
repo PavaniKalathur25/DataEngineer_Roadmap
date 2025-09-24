@@ -1,0 +1,27 @@
+{
+  "name": "BlobToSQLPipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
+          {
+            "referenceName": "BlobDataset",
+            "type": "DatasetReference"
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "SQLDataset",
+            "type": "DatasetReference"
+          }
+        ],
+        "typeProperties": {
+          "source": { "type": "DelimitedTextSource" },
+          "sink": { "type": "SqlSink" }
+        }
+      }
+    ]
+  }
+}
