@@ -1,0 +1,17 @@
+{
+  "name": "ParallelPipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "CopyActivity1",
+        "type": "Copy",
+        "dependsOn": []
+      },
+      {
+        "name": "CopyActivity2",
+        "type": "Copy",
+        "dependsOn": []
+      }
+    ]
+  }
+}

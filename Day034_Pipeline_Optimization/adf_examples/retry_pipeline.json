@@ -1,0 +1,15 @@
+{
+  "name": "RetryPipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "CopyFromAPI",
+        "type": "Copy",
+        "policy": {
+          "retry": 3,
+          "retryIntervalInSeconds": 120
+        }
+      }
+    ]
+  }
+}
