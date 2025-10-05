@@ -1,0 +1,13 @@
+-- DAX Examples for Power BI Measures
+
+-- 1️⃣ Total Sales
+Total_Sales = SUM(Sales[Amount])
+
+-- 2️⃣ Profit Percentage
+Profit_Percentage = DIVIDE(SUM(Sales[Profit]), SUM(Sales[Amount]), 0)
+
+-- 3️⃣ Year-to-Date Revenue
+YTD_Revenue = TOTALYTD(SUM(Sales[Amount]), Sales[Date])
+
+-- 4️⃣ Customer Count
+Customer_Count = DISTINCTCOUNT(Sales[CustomerID])
