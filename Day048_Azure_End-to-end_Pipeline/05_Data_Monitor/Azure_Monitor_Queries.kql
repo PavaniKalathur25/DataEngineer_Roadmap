@@ -1,0 +1,4 @@
+ADFActivityRun
+| where Status != "Succeeded"
+| project PipelineName, ActivityName, Status, RunStart, RunEnd
+| order by RunStart desc
