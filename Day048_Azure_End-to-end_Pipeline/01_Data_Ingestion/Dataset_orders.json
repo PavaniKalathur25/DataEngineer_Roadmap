@@ -1,0 +1,13 @@
+{
+  "name": "Orders_Dataset",
+  "properties": {
+    "linkedServiceName": { "referenceName": "AzureDataLakeLinkedService" },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": { "type": "AzureBlobStorageLocation", "fileName": "orders.csv" },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true
+    }
+  }
+}
