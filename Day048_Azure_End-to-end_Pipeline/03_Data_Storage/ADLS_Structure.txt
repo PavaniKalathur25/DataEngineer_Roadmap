@@ -1,0 +1,12 @@
+📁 ADLS Structure (Gen2)
+
+ecommercedatalake/
+│
+├── raw/
+│   └── orders.csv
+│
+├── processed/
+│   └── sales_by_region.parquet
+│
+└── curated/
+    └── sales_summary/
