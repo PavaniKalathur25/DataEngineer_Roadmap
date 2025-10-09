@@ -1,0 +1,17 @@
+{
+  "name": "Ingest_Orders_Data",
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy_Orders_To_ADLS",
+        "type": "Copy",
+        "inputs": [{ "referenceName": "Orders_Dataset", "type": "DatasetReference" }],
+        "outputs": [{ "referenceName": "Raw_ADLS", "type": "DatasetReference" }],
+        "typeProperties": {
+          "source": { "type": "DelimitedTextSource" },
+          "sink": { "type": "AzureBlobSink" }
+        }
+      }
+    ]
+  }
+}
