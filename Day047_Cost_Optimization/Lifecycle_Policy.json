@@ -1,0 +1,17 @@
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "MoveToCoolAfter30Days",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": { "blobTypes": ["blockBlob"], "prefixMatch": ["raw/"] },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 }
+          }
+        }
+      }
+    }
+  ]
+}
