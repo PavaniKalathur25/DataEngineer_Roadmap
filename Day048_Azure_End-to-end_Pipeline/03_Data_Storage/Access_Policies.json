@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "adf-service-principal": ["read", "write"],
+    "databricks-cluster": ["read", "write"],
+    "synapse-service": ["read"],
+    "powerbi": ["read"]
+  }
+}
