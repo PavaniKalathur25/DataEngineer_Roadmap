@@ -1,0 +1,10 @@
+{
+  "name": "AzureDataLakeLinkedService",
+  "type": "LinkedService",
+  "properties": {
+    "type": "AzureBlobStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=ecommercedatalake;AccountKey=<key>"
+    }
+  }
+}
