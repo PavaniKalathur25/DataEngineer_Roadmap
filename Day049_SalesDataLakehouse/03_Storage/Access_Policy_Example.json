@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "service_principals": {
+      "adf_sp": "read_write",
+      "databricks_sp": "read_write",
+      "synapse_sp": "read"
+    }
+  }
+}
