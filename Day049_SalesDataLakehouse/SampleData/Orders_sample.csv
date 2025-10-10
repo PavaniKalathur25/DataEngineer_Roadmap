@@ -1,0 +1,5 @@
+order_id,region,amount,status,order_ts,product_id
+1001,East,250.00,completed,2025-09-20 10:12:00,P100
+1002,West,400.50,completed,2025-09-20 11:05:00,P210
+1003,East,99.99,cancelled,2025-09-20 12:00:00,P300
+1004,North,1200.00,completed,2025-09-20 12:30:00,P150
