@@ -1,0 +1,9 @@
+Recommended ADLS Gen2 folder structure:
+
+saleslakehouse/
+├── bronze/       # Raw data from source systems
+│   └── orders_sample.csv
+├── silver/       # Cleaned Delta tables (validated)
+│   └── sales_cleaned_delta/
+└── gold/         # Aggregated Delta tables for reporting
+    └── sales_summary_delta/
