@@ -1,0 +1,11 @@
+// Azure Monitor — ADF pipeline failures
+ADFActivityRun
+| where Status != "Succeeded"
+| project PipelineName, ActivityName, Status, RunStart, RunEnd
+| order by RunStart desc
+
+// Databricks job errors
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DATABRICKS" and Level == "Error"
+| project TimeGenerated, Resource, OperationName, Message
+| order by TimeGenerated desc
