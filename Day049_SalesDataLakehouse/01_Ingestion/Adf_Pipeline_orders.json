@@ -1,0 +1,17 @@
+{
+  "name": "Ingest_Orders_Sample",
+  "properties": {
+    "activities": [
+      {
+        "name": "CopyOrders",
+        "type": "Copy",
+        "inputs": [{"referenceName": "OrdersDataset", "type": "DatasetReference"}],
+        "outputs": [{"referenceName": "BronzeOrders", "type": "DatasetReference"}],
+        "typeProperties": {
+          "source": {"type": "DelimitedTextSource"},
+          "sink": {"type": "AzureBlobFSink"}
+        }
+      }
+    ]
+  }
+}
