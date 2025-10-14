@@ -1,0 +1,198 @@
+🎯 Top 20 Cloud Data Engineer Interview Questions (with short answers)
+
+1️⃣ What is Azure Data Lake Storage Gen2?
+
+Answer: A scalable storage service for big data analytics built on Blob Storage, optimized for hierarchical namespaces and integration with analytics tools.
+
+
+---
+
+2️⃣ Difference between ADLS and Blob Storage?
+
+Feature	ADLS Gen2	Blob Storage
+
+Hierarchical Namespace	✅ Yes	❌ No
+Big Data Integration	✅ (Databricks, Synapse)	⚙️ Limited
+Access Pattern	File-system-like	Object-based
+
+
+
+---
+
+3️⃣ What is a Delta Lake?
+
+A storage layer built on top of data lakes providing ACID transactions, schema enforcement, and time travel.
+
+
+---
+
+4️⃣ How is ADF different from Databricks?
+
+ADF	Databricks
+
+Orchestration tool	Compute/Processing engine
+Low-code ETL	Code-based transformations
+Triggers pipelines	Executes complex data logic
+
+
+
+---
+
+5️⃣ How do you mount ADLS in Databricks?
+
+dbutils.fs.mount(
+  source="abfss://bronze@storageaccount.dfs.core.windows.net/",
+  mount_point="/mnt/bronze",
+  extra_configs={"fs.azure.account.key.storageaccount.dfs.core.windows.net": "<key>"}
+)
+
+
+---
+
+6️⃣ What are the three layers of a Data Lake architecture?
+
+Bronze: Raw data
+
+Silver: Cleaned/transformed data
+
+Gold: Aggregated/curated data for analytics
+
+
+
+---
+
+7️⃣ What is Azure Synapse Analytics used for?
+
+For large-scale data warehousing, analytical queries, and integrating with Power BI.
+
+
+---
+
+8️⃣ What is PolyBase in Synapse?
+
+A feature that lets Synapse query external data directly from storage (ADLS, Blob) using T-SQL.
+
+
+---
+
+9️⃣ How do you handle real-time data on Azure?
+
+Using Event Hubs or Kafka for ingestion → processed by Databricks Structured Streaming → stored in Delta Lake.
+
+
+---
+
+🔟 What is a Service Principal?
+
+An identity used by apps or services to access Azure resources securely (similar to a “username-password” for applications).
+
+
+---
+
+11️⃣ What is RBAC?
+
+Role-Based Access Control — defines permissions at resource or role level (e.g., Reader, Contributor, Owner).
+
+
+---
+
+12️⃣ How do you monitor data pipelines in Azure?
+
+Azure Monitor
+
+Log Analytics Workspace (KQL)
+
+ADF pipeline run logs
+
+
+
+---
+
+13️⃣ How do you optimize Azure costs?
+
+Use Reserved Instances for compute.
+
+Apply Storage Tiers (Hot/Cool/Archive).
+
+Monitor with Azure Cost Management.
+
+
+
+---
+
+14️⃣ What is Time Travel in Delta Lake?
+
+Feature allowing rollback or reprocessing of data using historical versions of Delta tables.
+
+df = spark.read.format("delta").option("versionAsOf", 5).load(path)
+
+
+---
+
+15️⃣ What is a Dedicated SQL Pool in Synapse?
+
+A provisioned compute resource designed for high-performance, parallel data warehousing workloads.
+
+
+---
+
+16️⃣ How to connect Power BI to Azure Synapse?
+
+Use Synapse endpoint → Import or DirectQuery mode → Create visuals and dashboards.
+
+
+---
+
+17️⃣ What are Azure Managed Identities?
+
+They allow Azure resources to access other Azure services without managing secrets or credentials manually.
+
+
+---
+
+18️⃣ What is Event Hub vs Kafka difference?
+
+Feature	Azure Event Hub	Kafka
+
+Managed by	Azure	Self-hosted/Open source
+Scaling	Auto-managed	Manual
+Integration	Tight with Azure services	Ecosystem-wide
+
+
+
+---
+
+19️⃣ What are Delta Lake merge operations?
+
+from delta.tables import DeltaTable
+
+deltaTable.alias("tgt").merge(
+    df.alias("src"),
+    "tgt.order_id = src.order_id"
+).whenMatchedUpdateAll().whenNotMatchedInsertAll().execute()
+
+
+---
+
+20️⃣ End-to-End Cloud Pipeline Scenario
+
+> You are asked to build a sales analytics system on Azure.
+
+
+
+✅ Ingest: ADF pulls CSV from Blob to ADLS
+✅ Store: ADLS Gen2 (Bronze)
+✅ Transform: Databricks + Delta (Silver/Gold)
+✅ Analyze: Synapse SQL
+✅ Visualize: Power BI
+✅ Monitor: Azure Monitor + Log Analytics
+✅ Secure: RBAC + Managed Identity
+
+
+---
+
+📘 Quick Revision Keywords
+
+ETL, ADF, ADLS, Databricks, Delta Lake, Synapse,
+Power BI, Event Hub, PolyBase, RBAC, IAM, Monitoring,
+Cost Optimization, Pipeline, Bronze/Silver/Gold.
