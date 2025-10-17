@@ -1,0 +1,10 @@
+Event Source (e.g., Azure Event Hub / Kafka)
+        │
+        ▼
+Spark Structured Streaming / Python API
+        │
+        ▼
+Power BI Streaming Dataset (via REST API)
+        │
+        ▼
+Real-Time Dashboard (auto-updated visuals)
