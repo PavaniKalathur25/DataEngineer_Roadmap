@@ -1,0 +1,11 @@
+1️⃣ Setup and import dependencies
+2️⃣ Define API endpoint
+3️⃣ Generate simulated streaming data
+4️⃣ Push data to Power BI REST API
+5️⃣ Verify data arrival and visualize
+
+📊 Output
+
+✅ Real-time chart updates every 3–5 seconds.
+✅ Dashboard displays orders, revenue, and timestamp live.
+✅ No manual refresh required.
