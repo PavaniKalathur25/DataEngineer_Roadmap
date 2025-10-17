@@ -1,0 +1,9 @@
+3️⃣ Visualize in Power BI Dashboard
+
+Go to your Power BI workspace → Open Dashboard → Add a Tile → Custom Streaming Data
+
+Select the dataset you created
+
+Choose visualization type (cards, charts, KPI, gauge, etc.)
+
+It will update automatically every few seconds!
