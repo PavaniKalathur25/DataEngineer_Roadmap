@@ -1,0 +1,9 @@
+1️⃣ Create Streaming Dataset in Power BI
+
+Go to Power BI Service → Workspace → Datasets → Create → Streaming Dataset
+
+Choose API option.
+
+Define fields (e.g. region, sales, timestamp).
+
+Copy the Push URL (it includes your dataset ID & API key).
