@@ -1,0 +1,6 @@
+# Notebook Sections:
+# 1️⃣ Setup Spark Session
+# 2️⃣ Tune Parallelism Parameters
+# 3️⃣ Enable Checkpointing
+# 4️⃣ Test Fault Tolerance by Restarting Query
+# 5️⃣ Measure Performance before/after optimization
