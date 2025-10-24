@@ -1,0 +1,6 @@
+{
+  "bootstrap_servers": "localhost:9092",
+  "topic_name": "clickstream_topic",
+  "eventhub_namespace": "iot-stream-hub",
+  "consumer_group": "realtime_analytics"
+}
