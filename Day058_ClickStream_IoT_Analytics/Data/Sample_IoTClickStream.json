@@ -1,0 +1,4 @@
+{"deviceId": "D001", "eventType": "click", "value": 10.5, "timestamp": "2025-10-14T10:00:00Z"}
+{"deviceId": "D002", "eventType": "view", "value": 20.2, "timestamp": "2025-10-14T10:01:00Z"}
+{"deviceId": "D003", "eventType": "temperature", "value": 45.8, "timestamp": "2025-10-14T10:01:30Z"}
+{"deviceId": "D004", "eventType": "humidity", "value": 65.3, "timestamp": "2025-10-14T10:02:00Z"}
