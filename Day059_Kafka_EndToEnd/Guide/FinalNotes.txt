@@ -1,0 +1,13 @@
+Final notes (practical next steps)
+
+I included both console + parquet sinks; change Parquet to Delta (cluster + Delta libs) for production.
+
+If you want, I can:
+
+provide a docker-compose service for Kafka UI (e.g., Kafdrop) to visualize topics,
+
+convert JSON to Avro + Schema Registry (more realistic),
+
+add a Prometheus exporter or sample Grafana dashboard,
+
+or produce a single-file zip you can download (you asked no zip earlier — I kept inline).

@@ -1,0 +1,15 @@
+Key implementation details & interview talking points
+
+Topic partitions: Set topic partitions > 1 to allow parallel consumers. Spark will read in parallel from partitions — tune number of Spark executors and spark.sql.shuffle.partitions.
+
+Checkpointing: Required for fault tolerance and exactly-once semantics for sinks that support it (e.g., files when using transactions) — always set .option("checkpointLocation", "<path>").
+
+Watermarking: Use .withWatermark(event_time_col, "x minutes") for windowed aggregations to bound state and handle late arrivals.
+
+Output modes: append for raw write, update or complete for aggregated outputs.
+
+Starting offsets: startingOffsets = "latest" in dev to avoid replay; earliest to reprocess.
+
+Schema: Define explicit schema to avoid expensive schema inference and to be robust to changes.
+
+Local dev vs Prod: Local Docker Kafka is for dev. Production uses managed Kafka (Confluent Cloud, Azure Event Hubs, AWS MSK), secure configs, and durable storage (S3/ADLS) for results and checkpointing.

@@ -1,0 +1,34 @@
+1.Start Kafka & ZK
+
+docker compose up -d
+
+2.Create the topic (recommended partitions=3)
+
+./create_topic.sh clickstream_topic 3 1
+
+3. Start the producer
+
+python3 scripts/producer.py
+
+4.Start Spark consumer:
+
+If using local Spark installed with spark-submit:
+
+spark-submit \
+  --master local[4] \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1 \
+  scripts/spark_consumer.py
+
+If using Databricks/EMR, use the UI or spark-submit with matching package versions
+
+5.Watch console output: aggregated counts printed; Parquet files appear under output/.
+
+6.To test recovery:
+
+Stop Spark job (Ctrl+C), restart with same checkpointLocation and it resumes without reprocessing old data.
+
+7.When done :
+
+docker compose down
+
+

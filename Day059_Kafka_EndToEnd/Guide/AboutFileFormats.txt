@@ -1,0 +1,18 @@
+Why Python & JSON? (short, precise)
+
+Python
+
+Fast to prototype producers and small ETL scripts — most engineers know it.
+
+Good client libraries: kafka-python, confluent-kafka for high throughput.
+
+PySpark lets you use Python API for Spark for Structured Streaming logic.
+
+
+JSON
+
+Universal, human-readable, flexible schema — ideal for events.
+
+Spark's from_json easily parses JSON into columns.
+
+Language-agnostic — producers/consumers from any language can interoperate.

@@ -1,0 +1,11 @@
+Troubleshooting & tips
+
+If Spark can't find Kafka packages: ensure connector version matches Spark/Scala. Example groupId/artifact: org.apache.spark:spark-sql-kafka-0-10_2.12:<spark-version>.
+
+If no messages seen: check producer logs, ensure bootstrap_servers points to localhost:9092.
+
+Consumer shows data but Parquet empty: ensure correct outputMode and that path is accessible & cleaned up between runs if needed.
+
+When testing restarts, keep same checkpointLocation; Spark will use offsets saved there.
+
+For high throughput, use confluent-kafka-python + librdkafka in producer for speed.

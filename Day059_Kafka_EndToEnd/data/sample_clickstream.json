@@ -1,0 +1,4 @@
+{"userId":"u1","page":"/home","action":"click","productId":"p1","ts":"2025-10-14T10:00:00Z"}
+{"userId":"u2","page":"/product","action":"view","productId":"p2","ts":"2025-10-14T10:00:05Z"}
+{"userId":"u1","page":"/cart","action":"add","productId":"p1","ts":"2025-10-14T10:00:10Z"}
+{"userId":"u3","page":"/home","action":"view","productId":null,"ts":"2025-10-14T10:01:00Z"}

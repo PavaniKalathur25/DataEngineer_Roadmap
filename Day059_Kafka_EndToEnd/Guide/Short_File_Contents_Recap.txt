@@ -1,0 +1,10 @@
+Day59_Kafka_EndToEnd/
+README.md
+docker-compose.yml
+create_topic.sh
+config/spark_config.json
+data/sample_clickstream.json
+scripts/producer.py
+scripts/spark_consumer.py
+scripts/write_to_parquet.py
+checkpoints/

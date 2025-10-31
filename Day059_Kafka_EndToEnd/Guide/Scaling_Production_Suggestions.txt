@@ -1,0 +1,9 @@
+Extra: Scaling & production suggestions (short)
+
+Use partitioned topics: one partition per parallel consumer core desired.
+
+Use exactly-once sinks (Delta / Kafka -> transactional sinks) for correctness.
+
+Use schema registry + Avro/Protobuf for strong schema governance.
+
+Monitor with Prometheus/Grafana or Confluent Control Center.
