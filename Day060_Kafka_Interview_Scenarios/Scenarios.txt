@@ -1,0 +1,236 @@
+✅ Scenario 1: What happens if Kafka consumer goes down while data is still coming?
+
+Question:
+If a Kafka consumer stops unexpectedly, what happens to the incoming streaming data?
+
+Interview-like explanation:
+Kafka is fault-tolerant. It keeps data in the topic for a configured retention period.
+Even if the consumer dies, Kafka won’t lose messages.
+When the consumer restarts, it will continue reading messages from the last committed offset.
+
+Example:
+
+Consumer processed messages until offset 105
+
+It went down
+
+When it restarts → it resumes from offset 106, not from the beginning
+
+Shortcut to remember:
+✅ “Kafka never loses messages — consumer just resumes from last committed offset.”
+
+Real-time relation:
+Imagine a payment processing system. Even if the consumer stops for 5 minutes,
+Kafka keeps transactions safe and resumes without duplicates or data loss.
+
+✅ Scenario 2: How do you avoid duplicate processing in streaming?
+
+Question:
+How do you ensure the same Kafka message is not processed twice?
+
+Interview-like explanation:
+Use checkpointing + commit offsets with exactly-once or at-least-once semantics.
+Spark tracks where it stopped and resumes safely.
+
+Example:
+Spark Streaming job restarts → reads checkpoint → knows last processed batch → avoids duplicate runs.
+
+Shortcut to remember:
+✅ “Checkpoints prevent reprocessing.”
+
+Real-time relation:
+Billing or payments can’t generate multiple invoices.
+Checkpointing guarantees once-per-transaction output.
+
+✅ Scenario 3: What if producer sends data faster than consumer can process?
+
+Question:
+What happens when data ingestion speed is higher than processing speed?
+
+Interview-like explanation:
+Kafka stores the data temporarily, consumers can scale horizontally (add more consumer instances in same group).
+
+Example:
+1 producer sends 10K messages/sec
+1 consumer can only handle 5K
+→ Add another consumer in same group
+→ Now each consumer processes 5K/sec
+
+Shortcut to remember:
+✅ “More load? Add more consumers.”
+
+Real-time relation:
+In e-commerce sales peak:
+When orders increase suddenly, scaling consumers helps avoid delays.
+
+✅ Scenario 4: How do you handle late-arriving data in streaming?
+
+Question:
+Streaming window is closed, but some events come late — what happens?
+
+Interview-like explanation:
+Use watermarking to accept late data for some time window (ex: 10 mins).
+After that time → late data is ignored.
+
+Example:
+Watermark = 10 min
+If event comes after 15 min → dropped
+
+Shortcut:
+✅ “Watermark = late data allowed window.”
+
+Real-time relation:
+IoT sensors may have network delay
+Watermark ensures analytics stay correct.
+
+✅ Scenario 5: How do you monitor if streaming pipeline is failing?
+
+Question:
+How do you know if streaming jobs are stuck, slow, or failed?
+
+Interview-like explanation:
+Use monitoring + alerting tools like:
+✅ Spark UI
+✅ Grafana
+✅ CloudWatch
+✅ Prometheus
+And logs + checkpoint lag tracking.
+
+Example:
+If consumer lag increases continuously → streaming is slow or stuck.
+
+Shortcut:
+✅ “Lag tells truth — high lag = problem.”
+
+Real-time relation:
+In stock trading, delayed processing can cause financial risk.
+Monitoring alerts team before failure becomes dangerous.
+
+✅ Scenario 6: How do you handle schema changes in streaming?
+
+Question:
+Producer adds new fields into streaming JSON. How does consumer handle it?
+
+Interview-like explanation:
+Use schema evolution via Avro/Parquet + Schema Registry.
+Consumers can read old + new data safely.
+
+Example:
+Old event: {id, price}
+New event: {id, price, currency}
+Consumer continues reading without breaking.
+
+Shortcut:
+✅ “Schema registry = flexible schema updates.”
+
+Real-time relation:
+E-commerce adds discount field tomorrow → dashboards must not break.
+
+✅ Scenario 7: Streaming job restarts – will it reprocess already processed data?
+
+Question:
+If a Spark/Kafka streaming job restarts, will it process the same messages again?
+
+Interview-like explanation:
+If checkpointing is enabled, Spark knows the last processed offset.
+It resumes from the next offset → so already-processed data is skipped.
+
+If checkpointing is NOT enabled → messages can repeat.
+
+Example:
+
+Processed until offset 5000
+
+Job restarted
+➡ With checkpointing → resumes from 5001
+➡ Without checkpointing → may reprocess 1–5000
+
+Shortcut to remember:
+✅ “Checkpoint = No reprocessing after restart.”
+
+Real-time relation:
+In bank transfers, duplicate processing can double-charge a customer.
+Checkpointing protects against that.
+
+✅ Scenario 8: What if Kafka topic receives null or corrupted messages?
+
+Question:
+How do you handle bad or corrupted data in streaming?
+
+Interview-like explanation:
+Use dead-letter queues (DLQ) to store bad records and skip them in main pipeline.
+This prevents job failure.
+
+Example:
+Record missing price field → move to DLQ → continue processing good records.
+
+Shortcut:
+✅ “Bad data? Send to DLQ.”
+
+Real-time relation:
+IoT sensors sometimes send broken data.
+Pipeline shouldn’t stop — DLQ keeps analytics running.
+
+✅ Scenario 9: How do you ensure ordering of messages?
+
+Question:
+Does Kafka guarantee message order?
+
+Interview-like explanation:
+Kafka guarantees ordering inside a partition, not across partitions.
+To ensure order → key-based partitioning is used.
+
+Example:
+CustomerID is used as key →
+All events for that customer land in same partition → order preserved.
+
+Shortcut:
+✅ “Order only inside a partition. Use key for consistency.”
+
+Real-time relation:
+Bank transactions must be ordered:
+Withdraw → Deposit
+Not Deposit → Withdraw
+
+✅ Scenario 10: How do you scale Spark Structured Streaming when data volume grows?
+
+Question:
+If data volume increases suddenly, how do you scale Spark streaming?
+
+Interview-like explanation:
+✅ Increase number of executors
+✅ Increase number of consumers
+✅ Increase partitions in Kafka
+✅ Increase parallelism in Spark
+
+Example:
+From 5 executors → 15 executors
+Throughput increases 3x
+
+Shortcut:
+✅ “More partitions → more parallelism → more speed.”
+
+Real-time relation:
+Festival sale on Flipkart, Amazon —
+The traffic spikes suddenly, pipeline must scale.
+
+✅ Scenario 11: What if checkpoint folder gets corrupted?
+
+Question:
+Streaming job fails because checkpoint folder got corrupted. Now what?
+
+Interview-like explanation:
+Two solutions:
+✅ Delete corrupted checkpoint and reprocess whole data
+✅ Or start consuming from latest offset to avoid reruns
+
+Example:
+If reprocessing is safe → delete checkpoint → job restarts from beginning
+If not safe → configure maxOffsetsPerTrigger and resume from latest
+
+Shortcut:
+✅ “Checkpoint broken → restart clean OR read from latest.”
+
+Real-time relation:
+If dashboards can tolerate reprocessing, restart.
+If not (like financial pipeline), skip old data and continue.
