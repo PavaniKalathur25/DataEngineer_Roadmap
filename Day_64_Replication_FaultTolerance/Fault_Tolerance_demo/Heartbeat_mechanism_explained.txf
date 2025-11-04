@@ -1,0 +1,11 @@
+💓 Heartbeat Mechanism
+
+A heartbeat is a periodic signal sent by systems to indicate health or availability.
+
+Example:
+- Kafka sends heartbeats from brokers to controllers.
+- Databases send health checks to load balancers.
+- If heartbeat stops → Failover initiated.
+
+🧠 Analogy:
+Think of heartbeat as a regular "I'm alive" ping from one server to another.
