@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service DataPipeline {
+  rpc ProcessData (DataRequest) returns (DataResponse);
+}
+
+message DataRequest {
+  string source = 1;
+  string payload = 2;
+}
+
+message DataResponse {
+  string message = 1;
+  bool success = 2;
+}
